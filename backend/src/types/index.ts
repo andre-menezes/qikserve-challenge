@@ -1,6 +1,4 @@
-interface WebSettings {
-  id: number;
-  venueId: number;
+export interface WebSettings {
   bannerImage: string;
   backgroundColour: string;
   primaryColour: string;

@@ -1,34 +1,25 @@
 import { Controller, Get } from '@nestjs/common';
 import { RestaurantService } from '../services';
-import { MenuResponse, RestaurantData, RestaurantMenu } from '../types';
+import { MenuResponse, RestaurantMenu, WebSettings } from '../types';
 
 @Controller('/restaurant')
 export class RestaurantController {
   constructor(private readonly restaurantService: RestaurantService) {}
 
-  @Get('/info')
-  async getRestaurantData(): Promise<RestaurantData | undefined> {
+  @Get('/settings')
+  async getRestaurantData(): Promise<{ webSettings: WebSettings } | undefined> {
     const data = await this.restaurantService.getRestaurantData();
-    let restaurantData: RestaurantData | undefined = undefined;
+    let restaurantData: { webSettings: WebSettings } | undefined = undefined;
 
     if (data) {
       restaurantData = {
-        id: data.id,
-        name: data.name,
-        internalName: data.internalName,
-        locale: data.locale,
         webSettings: {
-          id: data.webSettings.id,
-          venueId: data.webSettings.venueId,
           bannerImage: data.webSettings.bannerImage,
           backgroundColour: data.webSettings.backgroundColour,
           primaryColour: data.webSettings.primaryColour,
           primaryColourHover: data.webSettings.primaryColourHover,
           navBackgroundColour: data.webSettings.navBackgroundColour,
         },
-        ccy: data.ccy,
-        ccySymbol: data.ccySymbol,
-        currency: data.currency,
       };
     }
     return restaurantData;
