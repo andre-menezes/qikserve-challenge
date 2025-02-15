@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import restaurantReducer from './Restaurant';
+import { combineReducers } from '@reduxjs/toolkit';
+import restaurantSlice from './Restaurant';
 
 const rootReducer = combineReducers({
-  restaurantReducer,
+  restaurant: restaurantSlice,
 });
 
 export default rootReducer;

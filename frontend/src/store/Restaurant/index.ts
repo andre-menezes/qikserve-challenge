@@ -1,6 +1,8 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { RestaurantConfig } from '../../types';
+import { setWebSettings } from './restaurantActions';
 
-const initalState: RestaurantConfig = {
+const initialState: RestaurantConfig = {
   webSettings: {
     backgroundColour: '',
     bannerImage: '',
@@ -10,16 +12,12 @@ const initalState: RestaurantConfig = {
   },
 };
 
-const restaurantReducer = (state: RestaurantConfig = initalState, action: { type: string; payload: any }) => {
-  switch (action.type) {
-    case 'UPDATE_RESTAURANT_CONFIG':
-      return {
-        ...state,
-        webSettings: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+const restaurantSlice = createSlice({
+  name: 'restaurant',
+  initialState,
+  reducers: {
+    setWebSettings,
+  },
+});
 
-export default restaurantReducer;
+export default restaurantSlice.reducer;
