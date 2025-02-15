@@ -1,4 +1,4 @@
-export interface WebSettings {
+interface WebSettings {
   backgroundColour: string;
   bannerImage: string;
   navBackgroundColour: string;
@@ -6,6 +6,15 @@ export interface WebSettings {
   primaryColourHover: string;
 }
 
-export interface RestaurantConfig {
+interface RestaurantConfig {
   webSettings: WebSettings;
 }
+
+interface MenuItem {
+  title: string;
+  path: string;
+  component: React.ComponentType;
+  active: boolean;
+}
+
+export type { WebSettings, RestaurantConfig, MenuItem };

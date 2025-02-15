@@ -1,0 +1,48 @@
+.header-mobile {
+  background-color: var(--primary);
+  color: var(--menu-text);
+  position: relative;
+}
+
+.header-mobile__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-mobile__wrapper section:not(.header-banner) {
+  align-items: center;
+  display: flex;
+  height: 4rem;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.header-mobile__wrapper h2 {
+  font-size: 1.125rem;
+}
+
+.header-mobile__wrapper nav img {
+  cursor: pointer;
+}
+
+.menu-mobile {
+  background-color: var(--primary);
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 7.875rem;
+  padding: 2rem;
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  width: 100%;
+}
+
+.menu-mobile a {
+  background-color: #ffffff1a;
+  font-weight: bold;
+  padding: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
