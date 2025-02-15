@@ -4,13 +4,16 @@ import { useState } from 'react';
 import menu from '@/assets/icons/menu.svg';
 import './styles.css';
 import Banner from '../Banner';
-import logo from '@/assets/icons/logo.svg';
+import { RootState } from '@/store';
+import { useAppSelector } from '@/hooks';
 
 const MenuMobile: React.FC<MenuProps> = ({ menuItems }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const location = useLocation();
   const currentPage = menuItems.find((item) => item.path === location.pathname)?.title;
+
+  const logo = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
 
   return (
     <header className="header-mobile">

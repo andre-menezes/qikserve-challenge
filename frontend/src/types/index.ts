@@ -17,4 +17,8 @@ interface MenuItem {
   active: boolean;
 }
 
-export type { WebSettings, RestaurantConfig, MenuItem };
+interface MenuProps {
+  menuItems: MenuItem[];
+}
+
+export type { WebSettings, RestaurantConfig, MenuItem, MenuProps };

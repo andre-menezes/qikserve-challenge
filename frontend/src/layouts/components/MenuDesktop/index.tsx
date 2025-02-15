@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import Banner from '../Banner';
 import { MenuProps } from '@/types';
-import logo from '@/assets/icons/logo.svg';
 import './styles.css';
+import { RootState } from '@/store';
+import { useAppSelector } from '@/hooks';
 
 const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
   const location = useLocation();
@@ -12,6 +13,8 @@ const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
 
   if (previousActive) previousActive.active = false;
   if (currentPage) currentPage.active = true;
+
+  const logo = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
 
   return (
     <header className="header-desktop">
