@@ -1,0 +1,52 @@
+.header-desktop {
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--menu-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.header-desktop a {
+  text-decoration: none;
+}
+
+.header-desktop nav {
+  align-items: center;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  max-width: 43.5rem;
+  width: 100%;
+}
+
+.header-desktop > nav > ul {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+}
+
+.header-desktop li {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.header-desktop li a {
+  padding: 0.8rem 5rem;
+}
+
+.active::before {
+  background-color: var(--menu-text);
+  bottom: 0;
+  content: '';
+  height: 5px;
+  position: absolute;
+  width: 100%;
+}
