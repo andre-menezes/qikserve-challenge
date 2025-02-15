@@ -31,7 +31,7 @@ const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
           })}
         </ul>
       </nav>
-      <Banner src={logo} />
+      {logo && <Banner src={logo} />}
     </header>
   );
 };
