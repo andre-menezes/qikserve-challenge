@@ -2,8 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import Banner from '../Banner';
 import { MenuProps } from '@/types';
 import './styles.css';
-import { RootState } from '@/store';
 import { useAppSelector } from '@/hooks';
+import { RootState } from '@/store';
 
 const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
   const location = useLocation();
@@ -14,10 +14,11 @@ const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
   if (previousActive) previousActive.active = false;
   if (currentPage) currentPage.active = true;
 
-  const logo = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
+  const LOGO = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
+  const NAV_BACKGROUND_COLOUR = useAppSelector((state: RootState) => state.restaurant.webSettings.navBackgroundColour);
 
   return (
-    <header className="header-desktop">
+    <header className="header-desktop" style={{ backgroundColor: NAV_BACKGROUND_COLOUR }}>
       <nav>
         <ul>
           {menuItems.map(({ path, title, active }, index) => {
@@ -31,7 +32,7 @@ const MenuDesktop: React.FC<MenuProps> = ({ menuItems }) => {
           })}
         </ul>
       </nav>
-      {logo && <Banner src={logo} />}
+      {LOGO && <Banner src={LOGO} />}
     </header>
   );
 };

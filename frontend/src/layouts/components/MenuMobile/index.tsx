@@ -13,17 +13,21 @@ const MenuMobile: React.FC<MenuProps> = ({ menuItems }) => {
   const location = useLocation();
   const currentPage = menuItems.find((item) => item.path === location.pathname)?.title;
 
-  const logo = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
+  const BANNER = useAppSelector((state: RootState) => state.restaurant.webSettings.bannerImage);
+  const NAV_BACKGROUND_COLOUR = useAppSelector((state: RootState) => state.restaurant.webSettings.navBackgroundColour);
 
   return (
-    <header className="header-mobile">
+    <header className="header-mobile" style={{ backgroundColor: NAV_BACKGROUND_COLOUR }}>
       <div className="header-mobile__wrapper">
         <section>
           <div></div>
           <h2>{currentPage}</h2>
           <nav>
             <img src={menu} alt="Menu" onClick={() => setOpenMenu(!openMenu)} />
-            <ul className="menu-mobile" style={{ display: openMenu ? 'flex' : 'none' }}>
+            <ul
+              className="menu-mobile"
+              style={{ display: openMenu ? 'flex' : 'none', backgroundColor: NAV_BACKGROUND_COLOUR }}
+            >
               {menuItems.map(({ path, title }, index) => {
                 return (
                   <Link to={path} key={index} onClick={() => setOpenMenu(false)}>
@@ -34,7 +38,7 @@ const MenuMobile: React.FC<MenuProps> = ({ menuItems }) => {
             </ul>
           </nav>
         </section>
-        <Banner src={logo} />
+        {BANNER && <Banner src={BANNER} />}
       </div>
     </header>
   );

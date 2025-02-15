@@ -1,6 +1,5 @@
 .header-desktop {
   align-items: center;
-  background-color: var(--primary);
   color: var(--menu-text);
   display: flex;
   flex-direction: column;
